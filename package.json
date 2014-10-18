@@ -1,0 +1,15 @@
+{
+  "name": "mirrorrer",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./mirrorer.js"
+  },
+  "dependencies": {
+    "lodash": "*",
+    "jquery": "*",
+    "jsdom": "*",
+    "request": "*",
+    "vow": "*"
+  }
+}
