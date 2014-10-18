@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm data.json
+rm -f data.json
 rm -rf files
 
 /usr/bin/env node mirrorer.js > data.json
