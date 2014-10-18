@@ -1,5 +1,5 @@
-
 var fs = require('fs');
+var Url = require('url');
 
 fs.readFile('./data.json', 'utf8', function (err, data) {
     if (err) {
@@ -17,7 +17,7 @@ function makeParty(list) {
             fs.mkdirSync('./files/' + elem.path)
             makeParty(elem.children);
         } else {
-            console.log(elem.path);
+            console.log(Url.parse(elem.path).href);
         }
     });
 }

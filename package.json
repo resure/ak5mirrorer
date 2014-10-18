@@ -10,6 +10,7 @@
     "jquery": "*",
     "jsdom": "*",
     "request": "*",
-    "vow": "*"
+    "vow": "*",
+    "wget": "*"
   }
 }
