@@ -1,12 +1,15 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
-import urllib
+import requests
 
 
 def fetch(url):
     dest = './files/' + ('/'.join(url.split('/')[3:]));
-    urllib.urlretrieve (url, dest)
+    r = requests.get(url)
+    with open(dest, 'wb') as fd:
+        for chunk in r.iter_content(chunk_size=1024):
+            fd.write(chunk)
+    print('END   [%d/%d] %s' % (current, total, url.strip()))
 
 
 with open('./list.txt') as f:
@@ -14,12 +17,12 @@ with open('./list.txt') as f:
 
 total = len(urls)
 current = 0
-print 'Total: %d' % total
+print('Total: %d' % total)
 
 for url in urls:
+    url = url.strip()
     if url:
         current += 1
-        info = '[%d/%d] %s' % (current, total, url.strip())
-        print 'START %s' % info
+        print('START [%d/%d] %s' % (current, total, url.strip()))
         fetch(url)
-        print 'END   %s' % info
+

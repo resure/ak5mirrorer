@@ -17,7 +17,7 @@ function makeParty(list) {
             fs.mkdirSync('./files/' + elem.path)
             makeParty(elem.children);
         } else {
-            console.log(Url.parse(elem.path).href);
+            console.log(elem.path);
         }
     });
 }
